@@ -1,3 +1,7 @@
+import smbus
+import time
+from adxl345 import ADXL345
+
 class gy801:
     def __init__(self):
         self.accx = 0
@@ -10,9 +14,18 @@ class gy801:
         self.magy = 0
         self.magz = 0
         self.airPressure = 0
+        self.accReading()
+	
+    def accReading(self):        
+        adxl345 = ADXL345()
+        while(True):
+            axes = adxl345.getAxes(True)
+            print "ADXL345 on address 0x%x:" % (adxl345.address)
+            print "   x = %.3fG" % ( axes['x'] )
+            print "   y = %.3fG" % ( axes['y'] )
+            print "   z = %.3fG" % ( axes['z'] )
+            time.sleep(1)
 
-    def accReading(self):
-        pass
     def gyReading(self):
         self.gy2degree()
     def magReading(self):
