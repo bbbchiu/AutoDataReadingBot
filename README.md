@@ -9,13 +9,13 @@
 * l3g4200d.py: 讀取三軸陀螺儀的資料
 * h3c5883l.py: 讀取三軸地磁儀的資料
 
-## 三軸加速度
+## 三軸加速度(完成)
 * 型號: ADXL345
 * [參考來源](https://github.com/pimoroni/adxl345-python)
 * address: 0x53
 * data address: 0x32~0x37
 
-## 三軸陀螺儀
+## 三軸陀螺儀(完成，未校正)
 * 型號: L3G4200D
 * [參考來源](http://www.pibits.net/code/raspberry-pi-l3gd20-sensor.php)
 
