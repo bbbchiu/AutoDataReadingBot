@@ -34,9 +34,6 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Wire.begin(addressGyro);
-
-  writeReg(addressGyro,ctrl_reg1,0x0F);
-  writeReg(addressGyro,ctrl_reg4,0x30);
 }
 
 void loop() {
@@ -45,17 +42,24 @@ void loop() {
   if (gyroX > 32767){
     gyroX -= 65536;
   }
+  gyroX *= 8.75;
+  gyroX /= 1000;
 
   gyroY = readReg(addressGyro,gyroyh)*256+ readReg(addressGyro,gyroyl);
   if (gyroY > 32767){
     gyroY -= 65536;
   }
-
+  gyroY *= 8.75;
+  gyroY /= 1000;
+  
   gyroZ = readReg(addressGyro,gyrozh)*256+ readReg(addressGyro,gyrozl);
   if (gyroZ > 32767){
     gyroZ -= 65536;
   }
-  
+  gyroZ *= 8.75;
+  gyroZ /= 1000;
+
+  Serial.println("Gyro (degree per second)")
   Serial.print("X = ");
   Serial.println(gyroX);
   Serial.print("Y = ");

@@ -56,7 +56,8 @@ void loop() {
     accZ -= 65536;
   }
   accZ *= 0.004*9.8;
-  
+
+  Serial.println("Acc (m/s)");
   Serial.print("X = ");
   Serial.println(accX);
   Serial.print("Y = ");
