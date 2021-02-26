@@ -42,16 +42,19 @@ void loop() {
   if (magX > 32767){
     magX -= 65536;
   }
+  magX *= 0.92;
 
   magY = readReg(addressMag,magyh)*256+ readReg(addressMag,magyl);
   if (magY > 32767){
     magY -= 65536;
   }
-
+  magY *= 0.92;
+  
   magZ = readReg(addressMag,magzh)*256+ readReg(addressMag,magzl);
   if (magZ > 32767){
     magZ -= 65536;
   }
+  magZ *= 0.92;
   
   Serial.print("X = ");
   Serial.println(magX);

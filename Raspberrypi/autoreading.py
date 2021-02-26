@@ -1,19 +1,22 @@
 import sys
 from gy801 import GY801
+from gps import GPS
 
 a = GY801()
+b = GPS()
 
-ans = input('which device do you what to read? (acc,gyro,mag,bmp)')
+print("Reading ACC data (m/s/s)")
+a.accReading()
 
-if ans == 'acc':
-    print("start getting acc data")
-    a.accReading()
-elif ans == 'gyro':
-    print("start getting gyro data")
-    a.gyReading()
-elif ans == 'mag':
-    a.magReading()
-elif ans == 'bmp':
-    pass
-else:
-    pass
+print("Reading GYRO data (degree per second )")
+a.gyReading()
+
+print("Reading MAG data")
+#a.magReading()
+
+print("Reading Temperature and Pressure")
+a. airReading()
+
+print("Reading GPS data")
+b.gpsReading()
+
